@@ -6,11 +6,14 @@
         <% @facilities.each do |facility| %>
 
             <div class="card" style="width: 18rem;">
-              <img src="https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
+              <%= cl_image_tag facility.photo.key, crop: :fill, class:"img-index"%>
               <div class="card-body">
               <h5 class="card-title"><%= link_to facility.name, facility_path(facility.id) %></h5>
               <p class="card-text"><%= facility.description %></p>
-              <%= link_to "Book now", facility_path(facility.id), class: "btn btn-primary" %>
+
+
+              <%= link_to "Book now", facility_path(facility.id), class: "btn btn-primary"%></a>
+              
               </div>
             </div>
 
