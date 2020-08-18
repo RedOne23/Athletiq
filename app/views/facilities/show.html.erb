@@ -1,10 +1,14 @@
+
 <div class="container">
-
-<%= cl_image_tag @facility.photo.key, width: 400, height: 300, crop: :fill %>
-<h1><%=@facility.name%></h1>
-<p>Created by: <%= @facility.user.email %></p>
-<p>Category: <%= @facility.category %></p>
-<p>Address: <%= @facility.address %></p>
-<p>DESCRIPTION<br><%= @facility.description %></p>
-
+<div class="card-trip">
+  <%= cl_image_tag @facility.photo.key, width: 400, height: 300, crop: :fill %>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%=@facility.name%></h2>
+      <p><%= @facility.description %></p>
+    </div>
+    <h2 class="card-trip-pricing"><%= @facility.price %>€</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
 </div>
