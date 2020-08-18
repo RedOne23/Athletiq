@@ -1,7 +1,8 @@
-class Facility < ApplicationRecord
+<h1>@Facility.</h1>
+<p>Find me in app/views/facilities/new.html.erb</p>
+
+
   belongs_to :user
   validates :address, presence: true, uniqueness: true
   validates :category, presence: true, uniqueness: true
   validates :description, presence: true
-  validates :name, presence: true
-end
