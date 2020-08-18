@@ -10,7 +10,7 @@
               <div class="card-body">
               <h5 class="card-title"><%= link_to facility.name, facility_path(facility.id) %></h5>
               <p class="card-text"><%= facility.description %></p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <%= link_to "Book now", facility_path(facility.id), class: "btn btn-primary" %>
               </div>
             </div>
 
