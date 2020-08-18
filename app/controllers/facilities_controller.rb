@@ -13,6 +13,7 @@ class FacilitiesController < ApplicationController
 
   def create
     @facility = Facility.new(facility_params)
+    @facility.user = current_user
 
     if @facility.save
       redirect_to @facility, notice: "Your facility has been successfully created"
@@ -22,7 +23,7 @@ class FacilitiesController < ApplicationController
   end
 
   def facility_params
-    params.require(:facility).permit(:user, :name, :address, :category, :description, :price, :capacity, :photo)
+    params.require(:facility).permit(:user_id, :name, :address, :category, :description, :price, :capacity, :photo)
   end
 
 
