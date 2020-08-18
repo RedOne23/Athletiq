@@ -1,2 +1,12 @@
-<h1>Facilities#new</h1>
-<p>Find me in app/views/facilities/new.html.erb</p>
+<h1 my-3>Create a facility</h1>
+
+<%= simple_form_for( @facility) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :category %>
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <%= f.input :capacity %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit  class: "submit-btn" %>
+<% end %>
