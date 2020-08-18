@@ -1,5 +1,9 @@
-<h1>@facility.name</h1>
-<p><%= "Created by:" @facility.user.name %></p>
-<p><%= "Category:" @facility.category %></p>
-<p><%= "Address:" @facility.address %></p>
-<p>DESCRIPTION"<br><%= @facility.description %></p>
+<div class="container">
+
+<h1><%=@facility.name%></h1>
+<p>Created by: <%= @facility.user.email %></p>
+<p>Category: <%= @facility.category %></p>
+<p>Address: <%= @facility.address %></p>
+<p>DESCRIPTION<br><%= @facility.description %></p>
+
+</div>

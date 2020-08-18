@@ -1,8 +1,15 @@
-<h1>@Facility.</h1>
-<p>Find me in app/views/facilities/new.html.erb</p>
+<div class="container">
+<h1 my-3>Create a facility</h1>
 
+<%= simple_form_for( @facility) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :category %>
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <%= f.input :capacity %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit  class: "submit-btn" %>
+<% end %>
 
-  belongs_to :user
-  validates :address, presence: true, uniqueness: true
-  validates :category, presence: true, uniqueness: true
-  validates :description, presence: true
+</div>
