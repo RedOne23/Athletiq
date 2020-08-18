@@ -1,5 +1,6 @@
 <div class="container">
 
+<%= cl_image_tag @facility.photo.key, width: 400, height: 300, crop: :fill %>
 <h1><%=@facility.name%></h1>
 <p>Created by: <%= @facility.user.email %></p>
 <p>Category: <%= @facility.category %></p>

@@ -4,7 +4,7 @@
 <%= simple_form_for( @facility) do |f| %>
   <%= f.input :name %>
   <%= f.input :address %>
-  <%= f.input :category %>
+  <%= f.input :category, collection: ["Football", "Tennis", "Swimming pool", "Event"]%>
   <%= f.input :price %>
   <%= f.input :description %>
   <%= f.input :capacity %>
