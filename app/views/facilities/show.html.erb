@@ -2,7 +2,9 @@
 <div class="container">
   <%= link_to "Back", facilities_path, class: "btn btn-primary" %>
 <div class="card-trip">
-  <%= cl_image_tag @facility.photo.key, width: 400, height: 300, crop: :fill %>
+ <% if @facility.photo.attached? %> 
+    <%= cl_image_tag @facility.photo.key, width: 400, height: 300, crop: :fill %>
+  <%end%>
   <div class="card-trip-infos">
     <div>
       <h2><%=@facility.name%></h2>
