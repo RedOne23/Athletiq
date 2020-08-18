@@ -1,5 +1,6 @@
 
 <div class="container">
+  <%= link_to "Back", facilities_path, class: "btn btn-primary" %>
 <div class="card-trip">
   <%= cl_image_tag @facility.photo.key, width: 400, height: 300, crop: :fill %>
   <div class="card-trip-infos">
