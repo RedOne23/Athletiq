@@ -2,11 +2,15 @@
   display: flex;
   padding-top: 10px;
 }
-// .fixed-card {
-//   position: absolute;
-// }
+
+.container-map {
+  display: flex;
+  padding-top: 10px;
+  margin-left: 100px
+}
+
 .h2show {
-  padding-left: 100px;
+  margin-left: 100px;
   padding-top: 10px;
 }
 
@@ -20,7 +24,6 @@
   padding: 24px;
   min-width: 20%;
   min-height: 70%
-
 }
 
 .card-product {
