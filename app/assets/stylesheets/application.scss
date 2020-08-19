@@ -6,6 +6,8 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
+@import 'mapbox-gl/dist/mapbox-gl';
+@import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
 @import "font-awesome";
 
 // Your CSS partials
@@ -15,4 +17,5 @@
 @import "components/navbar";
 @import "components/card-index";
 @import "components/card_show";
+@import "components/map";
 
