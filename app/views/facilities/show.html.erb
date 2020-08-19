@@ -1,4 +1,3 @@
-<h2 class="h2show"><%=@facility.name%></h2>
 <div class="container container-show">
 <div>
  <% if @facility.photo.attached? %>
@@ -7,9 +6,10 @@
 </div>
 <div class="card-product">
   <div class="card-product-infos fixed-card">
+    <h2 class="h2show"><%=@facility.name%></h2>
+    <p><strong>Category: </strong><%= @facility.category %></p>
     <p><strong>Address: </strong><%= @facility.address %></p>
     <p><strong>Capacity: </strong><%= @facility.capacity %></p>
-    <p><strong>Category: </strong><%= @facility.category %></p>
     <p><strong>Description: </strong><%= @facility.description %></p>
     <p><strong>Price: </strong><%= @facility.price %><strong> €</strong></p>
     <br><button class="btn btn-primary">Book now</button>
@@ -18,4 +18,10 @@
 </div>
 </div>
 
-
+<div class="container-map">
+<div id="map"
+                style="width: 66%; height: 400px;"
+                data-markers="<%= @markers.to_json %>"
+                data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+              </div>
+</div>

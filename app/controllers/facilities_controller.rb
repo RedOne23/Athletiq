@@ -2,18 +2,22 @@ class FacilitiesController < ApplicationController
   def index
     @facilities = Facility.geocoded
 
-    @markers = @facilities.map do |facility| 
+    @markers = @facilities.map do |facility|
       {
         lat: facility.latitude,
         lng: facility.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { facility: facility })
       }
     end
-
   end
 
   def show
-    @facility = Facility.find(params[:id])
+    @facility = Facility.geocoded.find(params[:id])
+    @markers = [{
+        lat: @facility.latitude,
+        lng: @facility.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { facility: @facility })
+      }]
   end
 
   def new
@@ -26,7 +30,7 @@ class FacilitiesController < ApplicationController
 
     if @facility.save
       redirect_to @facility, notice: "Your facility has been successfully created"
-    else 
+    else
       render 'new'
     end
 
