@@ -1,16 +1,21 @@
-
-<div class="container">
-  <%= link_to "Back", facilities_path, class: "btn btn-primary" %>
-<div class="card-trip">
- <% if @facility.photo.attached? %> 
-    <%= cl_image_tag @facility.photo.key, width: 400, height: 300, crop: :fill %>
+<h2 class="h2show"><%=@facility.name%></h2>
+<div class="container container-show">
+<div>
+ <% if @facility.photo.attached? %>
+    <%= cl_image_tag @facility.photo.key, width: 800 , height: 500, crop: :fill %>
   <%end%>
-  <div class="card-trip-infos">
-    <div>
-      <h2><%=@facility.name%></h2>
-      <p><%= @facility.description %></p>
-    </div>
-    <h2 class="card-trip-pricing"><%= @facility.price %>€</h2>
+</div>
+<div class="card-product">
+  <div class="card-product-infos fixed-card">
+    <p><strong>Address: </strong><%= @facility.address %></p>
+    <p><strong>Capacity: </strong><%= @facility.capacity %></p>
+    <p><strong>Category: </strong><%= @facility.category %></p>
+    <p><strong>Description: </strong><%= @facility.description %></p>
+    <p><strong>Price: </strong><%= @facility.price %><strong> €</strong></p>
+    <br><button class="btn btn-primary">Book now</button>
+
   </div>
 </div>
 </div>
+
+
