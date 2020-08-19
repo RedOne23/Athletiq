@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>All Facilities</h1>
+      <h1 my-3>All Facilities</h1>
       <ul class="list-group">
         <% @facilities.each do |facility| %>
             <div class="card" style="width: 18rem;">
@@ -14,9 +14,16 @@
 
 
               <%= link_to "Book now", facility_path(facility.id), class: "btn btn-primary"%></a>
-              
+            
               </div>
             </div>
+
+             <div id="map"
+                style="width: 100%; height: 600px;"
+                data-markers="<%= @markers.to_json %>"
+                data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+              </div>
+
 
         <% end %>
       </ul>

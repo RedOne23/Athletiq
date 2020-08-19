@@ -1,6 +1,15 @@
 class FacilitiesController < ApplicationController
   def index
-    @facilities = Facility.all
+    @facilities = Facility.geocoded
+
+    @markers = @facilities.map do |facility| 
+      {
+        lat: facility.latitude,
+        lng: facility.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { facility: facility })
+      }
+    end
+
   end
 
   def show
@@ -20,6 +29,7 @@ class FacilitiesController < ApplicationController
     else 
       render 'new'
     end
+
   end
 
   def facility_params
