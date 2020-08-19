@@ -1,15 +1,17 @@
-<div class="container sign-up-form">
-<h1>Create a facility</h1>
+<div class="container forms-layout">
 
-<%= simple_form_for( @facility) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address, id:"facility_address" %>
-  <%= f.input :category, collection: ["Football", "Tennis", "Swimming pool", "Event"]%>
-  <%= f.input :price %>
-  <%= f.input :description %>
-  <%= f.input :capacity %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit  class: "submit-btn" %>
-<% end %>
-
+  <div class="form-inputs">
+  <h1 class="form-title">Create a facility</h1>
+  
+  <%= simple_form_for( @facility) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address, id:"facility_address" %>
+    <%= f.input :category, collection: ["Football", "Tennis", "Swimming pool", "Event"]%>
+    <%= f.input :price %>
+    <%= f.input :description %>
+    <%= f.input :capacity %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit  class: "submit-btn btn btn-primary" %>
+  <% end %>
+  </div>
 </div>
