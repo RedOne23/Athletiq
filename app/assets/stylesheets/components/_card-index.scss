@@ -4,11 +4,12 @@
 
 }
 .card {
+  border: none;
   border-radius: 8px;
-  width: 700px !important;
+  width: 400px !important;
   height: 360px !important;
   margin: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1)
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 
 }
 .btn-primary {
@@ -18,4 +19,32 @@
 }
 .btn-primary.hover {
 
+}
+
+.content {
+  display: flex;
+}
+.cards {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+#title {
+  display: inline-block;
+}
+.card-body {
+  background-color: white;
+
+}
+.h5-card {
+  text-decoration: none !important;
+  color:rgba(121,9,30,1);
 }
