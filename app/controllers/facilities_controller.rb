@@ -36,6 +36,24 @@ class FacilitiesController < ApplicationController
 
   end
 
+  def edit
+    @facility = Facility.find(params[:id])
+  end
+
+  def update
+    @facility = Facility.find(params[:id])
+    @facility.update(facility_params)
+    redirect_to facility_path(@facility)
+  end
+
+  def destroy
+    @facility = Facility.find(params[:id])
+    @facility.destroy
+
+    # no need for app/views/restaurants/destroy.html.erb
+    redirect_to facilities_path
+  end
+
   def facility_params
     params.require(:facility).permit(:user_id, :name, :address, :category, :description, :price, :capacity, :photo)
   end

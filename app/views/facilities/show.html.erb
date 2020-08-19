@@ -1,7 +1,7 @@
 <div class="container container-show">
 <div>
  <% if @facility.photo.attached? %>
-    <%= cl_image_tag @facility.photo.key, width: 800 , height: 500, crop: :fill %>
+    <%= cl_image_tag @facility.photo.key, width: 800 , height: 500, crop: :fill, class: "photo" %>
   <%end%>
 </div>
 <div class="card-product">
@@ -12,8 +12,11 @@
     <p><strong>Capacity: </strong><%= @facility.capacity %></p>
     <p><strong>Description: </strong><%= @facility.description %></p>
     <p><strong>Price: </strong><%= @facility.price %><strong> €</strong></p>
-    <br><button class="btn btn-primary">Book now</button>
-
+    <div class="container container-button">
+    <br><button class="btn btn-flat">Book now</button>
+    <%= link_to "Edit Facility", edit_facility_path, class: "btn btn-flat" %>
+    <p><br></p> <%= link_to "Delete Facility", facility_path(@facility), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-flat"  %>
+    </div>
   </div>
 </div>
 </div>
