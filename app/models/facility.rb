@@ -1,5 +1,6 @@
 class Facility < ApplicationRecord
   belongs_to :user
+  has_many :reviews
   validates :address, presence: true
   validates :category, presence: true, inclusion: { in: ["Football", "Tennis", "Swimming pool", "Event"] }
   validates :description, presence: true

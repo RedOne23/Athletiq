@@ -10,7 +10,7 @@
   border-radius: 16px;
 }
 h2.form-title, h1.form-title {
-  margin-bottom: 36px; 
+  margin-bottom: 36px;
   color: rgb(88, 88, 88) !important;
 }
 
@@ -23,5 +23,10 @@ color: #812A34 !important;
 }
 
 .btn-primary {
+  border: none;
   margin-bottom: 10px;
+  background-color: #7B0F22 !important;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
 }
