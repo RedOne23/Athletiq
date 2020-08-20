@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+  def list
+    @bookings = Booking.all
+  end
+
   def new
     @facility = Facility.find(params[:facility_id])
     @booking = Booking.new
@@ -14,6 +18,12 @@ class BookingsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def delete
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to bookings_path
   end
 
     private
