@@ -1,7 +1,7 @@
 <div class="container">
  <div class="row">
     <div class="col-lg-8">
-     <% if @facility.photo.attached? %>
+      <% if @facility.photo.attached? %>
         <%= cl_image_tag @facility.photo.key, width: 730 , height: 500, crop: :fill, class: "photo" %>
       <%end%>
     </div>
@@ -17,10 +17,28 @@
         <br><button class="btn btn-flat">Book now</button>
         <%= link_to "Edit Facility", edit_facility_path, class: "btn btn-flat" %>
         <p><br></p> <%= link_to "Delete Facility", facility_path(@facility), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-flat"  %>
+        <%= link_to "Edit Review", new_facility_review_path(@facility), class: "btn btn-flat" %>
+
         </div>
       </div>
     </div>
   </div>
+<div>
+  <% @facility.reviews.each do |review|%>
+  <p>Comment : <%= review.content %> </p>
+  <% if review.rating == 1 %>
+  <p>⭐️</p>
+  <% elsif review.rating == 2 %>
+  <p>⭐️⭐️</p>
+  <% elsif review.rating == 3 %>
+  <p>⭐️⭐️⭐️</p>
+  <% elsif review.rating == 4 %>
+  <p>⭐️⭐️⭐️⭐️ </p>
+  <% else review.rating == 5 %>
+  <p>⭐️⭐️⭐️⭐️⭐️ </p>
+  <%end%>
+  <%end%>
+</div>
 
 <div class="row">
     <div class="col-lg-8">
