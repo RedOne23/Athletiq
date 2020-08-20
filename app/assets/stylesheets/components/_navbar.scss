@@ -2,8 +2,12 @@
   justify-content: space-between;
 
   background: rgb(1,1,1);
-  background: linear-gradient(90deg, rgba(1,1,1,1) 0%, rgba(123,59,55,0.8687850140056023) 67%, rgba(121,9,30,1) 100%);
+  background: linear-gradient(90deg, rgba(1,1,1,1) 0%, rgb(123,59,55) 67%, rgb(121,9,30) 100%);
   height: 100px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 20;
 
 }
 
