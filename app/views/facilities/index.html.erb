@@ -1,29 +1,37 @@
 
 <div class="container-fluid content">
-<div class="cards row mx-1">
-  <% @facilities.each do |facility| %>
-    
-        <div class="card col-md-5 m-2 px-0">
-
-          <% if facility.photo.attached? %>
-            <%= cl_image_tag facility.photo.key, crop: :fill, class:"img-index"%>
-          <%end%>
-          <div class="card-body ">
-            <h5 class="card-title"><%= link_to facility.name, facility_path(facility), class:"h5-card" %></h5>
-            <p class="card-text"><%= facility.address %></p>
-            <p class="card-text"><%= facility.price %>€</p>
-          </div>
-
-        </div>
+  <div class="cards row mx-0">
+    <div class="col-7">
+      <div class="row mx-2">
+    <% @facilities.each do |facility| %>
       
-  <% end %>
-
+      <div class="card-trip col-12 px-0 mr-3 mb-2">
+  <% if facility.photo.attached? %>
+    <%= cl_image_tag facility.photo.key, crop: :fill, class:"img-index"%>
+        <%end%>
+  <div class="card-trip-infos">
+    <div>
+      <h2 class="card-title"><%= link_to facility.name, facility_path(facility), class:"h5-card" %></h2>
+      <p class="card-text"><%= facility.address %></p>
+    </div>
+    <h2 class="card-trip-pricing"><%= facility.price %> €</h2>
+  </div>
+</div>
+        
+    <% end %>
+  </div>
 </div>
 
+    <div class="col-md-5 map-container m-0 p-0">
 
-      <div class="col-md-7" id="map"
+      <div id="map"
       style="width: 100%; height: 600px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
+    </div>
+  </div>
 </div>
+
+
+

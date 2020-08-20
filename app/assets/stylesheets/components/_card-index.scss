@@ -3,34 +3,67 @@
   height: 250px;
 
 }
-
-.btn-primary {
-  border: none;
-  background: rgb(1,1,1) !important;
-  background: linear-gradient(90deg, rgba(1,1,1,1) 0%, rgba(123,59,55,0.8687850140056023) 67%, rgba(121,9,30,1) 100%) !important;
-}
-
-
-.cards {
-  max-height: 300px;
-}
 .content {
   display: flex;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 #map {
   height: 100vh !important;
-  position: sticky !important ;
+  position: sticky;
   top: 0 !important;
 }
 #title {
   display: inline-block;
 }
-.card-body {
-  background-color: white;
 
+
+.map-container {
+  padding: 0;
 }
-.h5-card {
-  text-decoration: none !important;
-  color:rgba(121,9,30,1);
+
+.card-title a {
+  text-decoration: none;
+  color: #884546;
+}
+
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }
