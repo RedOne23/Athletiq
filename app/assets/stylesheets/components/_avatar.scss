@@ -3,6 +3,9 @@
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
+  &:hover {
+    cursor: pointer; 
+  }
 }
 .avatar-large {
   width: 56px;
