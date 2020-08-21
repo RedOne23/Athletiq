@@ -16,8 +16,8 @@
           <p><strong>Price: </strong><%= @facility.price %><strong> €</strong></p>
           <div class="container container-button">
           <br><%= link_to "Book Now", new_facility_booking_path(@facility), class: "btn btn-flat" %>
-          <%= link_to "Edit Facility", edit_facility_path, class: "btn btn-flat" %>
-          <p><br></p> <%= link_to "Delete Facility", facility_path(@facility), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-flat"  %>
+          <%#= link_to "Edit Facility", edit_facility_path, class: "btn btn-flat" %>
+          <!-- <p><br></p> <%= link_to "Delete Facility", facility_path(@facility), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-flat"  %> -->
           <%= link_to "Submit review", new_facility_review_path(@facility), class: "btn btn-flat" %>
           </div>
         </div>
