@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_facility, only: [:new, :create]
+
   def new
     @review = Review.new
   end
