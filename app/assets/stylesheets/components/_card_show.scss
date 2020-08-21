@@ -82,3 +82,30 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+#review-content {
+  border:1px solid rgb(221,221,221);
+  background-color: rgba(255, 255, 255,0.6);
+  margin-top: 10px;
+  width: 730px;
+  height: 200px;
+  padding-top: 20px;
+  border-radius: 4px;
+  display: flex;
+  margin-left: 0;
+  padding: 15px;
+}
+#review-content p {
+  margin: 0;
+}
+#star {
+  max-height: 10px;
+}
+#comment{
+  max-height: 10px;
+}
+.fas.fa-comments {
+  color: #7B0F22;
+}
+#spanreview {
+  margin-left: 15px;
+}
