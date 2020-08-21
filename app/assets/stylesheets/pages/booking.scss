@@ -1,0 +1,22 @@
+.booking-background {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1563299796-b729d0af54a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.content.booking {
+  border: none;
+}
+
+.div-no_booking-yet {
+ min-width: 300px;
+
+}
+
+#no-booking-yet {
+  font-size: 68px !important;
+  padding: 50% 0;
+  color: #fff;
+}
