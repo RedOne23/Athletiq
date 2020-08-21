@@ -1,30 +1,36 @@
-<div style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1563299796-b729d0af54a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80)", class ="fixed">
-<div class="container container-fluid content booking">
-<div class="whiteback"
 
-  <div class="cards row mx-0">
-    <div class="col-12">
-      <div class="row mx-2">
-    <% @bookings.each do |booking| %>
-        <div class="card-trip col-12 px-0 mr-3 mb-2">
-          <% if booking.facility.photo.attached? %>
-          <%= cl_image_tag booking.facility.photo.key, crop: :fill, class:"img-index"%>
-      <% end %>
+  <div class ="fixed booking-background">
+    <div class="container container-fluid content booking">
+     <% if @bookings.blank? %>
+       <p id="no-booking-yet"> No bookings yet ...</p>
+     <% else %>
+      <div class="whiteback">
 
-        <div class="card-trip-infos">
-            <div>
-              <h2 class="card-title"><%= link_to booking.facility.name, bookings_path, class:"h5-card" %> Status: ✅</h2>
-              <p class="card-text"><%= booking.facility.address %></p>
-              <p><%= link_to "Cancel Booking", bookings_delete_path(booking), method: :delete,
-            data: { confirm: "Are you sure?" } %></p>
+        <div class="cards row mx-0">          
+          <div class="col-12">
+              <div class="row mx-2">
+                <% @bookings.each do |booking| %>
+                  <div class="card-trip col-12 px-0 mr-3 mb-2">
+                      <% if booking.facility.photo.attached? %>
+                      <%= cl_image_tag booking.facility.photo.key, crop: :fill, class:"img-index"%>
+                    <% end %>
+
+                  <div class="card-trip-infos">
+                      <div>
+                        <h2 class="card-title"><%= link_to booking.facility.name, bookings_path, class:"h5-card" %> Status: ✅</h2>
+                        <p class="card-text"><%= booking.facility.address %></p>
+                        <p><%= link_to "Cancel Booking", bookings_delete_path(booking), method: :delete,
+                        data: { confirm: "Are you sure?" } %></p>
+                      </div>
+                      <h2 class="card-trip-pricing"><%= booking.start_date %> <%= booking.end_date %></h2>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
             </div>
-            <h2 class="card-trip-pricing"> <%= booking.start_date.to_formatted_s(:rfc822) %> / <%= booking.end_date.to_formatted_s(:rfc822) %></h2>
+          <h2 class="card-trip-pricing"> <%= booking.start_date.to_formatted_s(:rfc822) %> / <%= booking.end_date.to_formatted_s(:rfc822) %></h2>
           </div>
-        </div>
-     <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-</div>
-</div>
-</div>

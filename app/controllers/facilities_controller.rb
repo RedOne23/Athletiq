@@ -1,6 +1,6 @@
 class FacilitiesController < ApplicationController
   def index
-    
+
 
     if params[:query].present?
       sql_query = "category ILIKE :query"
@@ -18,11 +18,12 @@ class FacilitiesController < ApplicationController
       }
     end
 
-  
+
   end
 
   def show
     @facility = Facility.geocoded.find(params[:id])
+    @reviews = @facility.reviews.order(updated_at: :desc).take(5)
     @markers = [{
         lat: @facility.latitude,
         lng: @facility.longitude,

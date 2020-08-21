@@ -24,27 +24,30 @@
       </div>
     </div>
     <div class="row" id="review-content">
-      <% @facility.reviews.each do |review|%>
-      <div class="col-9" id="comment">
-        <p><i class="fas fa-comments"></i> <span id="spanreview"><%= review.content %></span> </p>
-      </div>
-      <br>
-      <div class="col-3" id="star">
-        <% if review.rating == 1 %>
-          <p>⭐️</p>
-          <% elsif review.rating == 2 %>
-          <p>⭐️⭐️</p>
-          <% elsif review.rating == 3 %>
-          <p>⭐️⭐️⭐️</p>
-          <% elsif review.rating == 4 %>
-          <p>⭐️⭐️⭐️⭐️ </p>
-          <% else review.rating == 5 %>
-          <p>⭐️⭐️⭐️⭐️⭐️ </p>
+      <% if @reviews.blank? %>
+        Be the first to leave a review for <strong id="facname"> <%= @facility.name %> </strong>
+      <% else %>
+        <% @reviews.each do |review|%>
+        <div class="col-9" id="comment">
+          <p><i class="fas fa-comments"></i> <span id="spanreview"><%= review.content %></span> </p>
+        </div>
+        <br>
+        <div class="col-3" id="star">
+          <% if review.rating == 1 %>
+            <p>⭐️</p>
+            <% elsif review.rating == 2 %>
+            <p>⭐️⭐️</p>
+            <% elsif review.rating == 3 %>
+            <p>⭐️⭐️⭐️</p>
+            <% elsif review.rating == 4 %>
+            <p>⭐️⭐️⭐️⭐️ </p>
+            <% else review.rating == 5 %>
+            <p>⭐️⭐️⭐️⭐️⭐️ </p>
+          <%end%>
+        </div>
         <%end%>
-      </div>
-      <%end%>
+      <% end %>
     </div>
-
 
   <div class="row">
       <div class="col-lg-8">
@@ -60,3 +63,4 @@
     </div>
   </div>
 </div>
+
