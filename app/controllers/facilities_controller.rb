@@ -1,6 +1,13 @@
 class FacilitiesController < ApplicationController
   def index
-    @facilities = Facility.geocoded
+    
+
+    if params[:query].present?
+      sql_query = "category ILIKE :query"
+      @facilities = Facility.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @facilities = Facility.geocoded
+    end
 
     @markers = @facilities.map do |facility|
       {
@@ -9,6 +16,8 @@ class FacilitiesController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { facility: facility })
       }
     end
+
+  
   end
 
   def show

@@ -1,4 +1,13 @@
 
+<%= form_tag facilities_path, method: :get, class:"mx-3" do %>
+  <%= select_tag :query,
+    raw('<option value="Football">Football</option><option value="Tennis">Tennis</option><option value="Swimming pool">Swimming pool</option><option value="Event">Event</option>'),
+    class: "form-control my-2",
+    :include_blank => "All categories"
+  %>
+  <%= submit_tag "Search", class: "btn btn-flat" %>
+<% end %>
+
 <div class="container-fluid content">
   <div class="cards row mx-0">
     <div class="col-7">
