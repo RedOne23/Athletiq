@@ -22,13 +22,12 @@
                         <p><%= link_to "Cancel Booking", bookings_delete_path(booking), method: :delete,
                         data: { confirm: "Are you sure?" } %></p>
                       </div>
-                      <h2 class="card-trip-pricing"><%= booking.start_date %> <%= booking.end_date %></h2>
+                      <h2 class="card-trip-pricing"> <%= booking.start_date.to_formatted_s(:rfc822) %> / <%= booking.end_date.to_formatted_s(:rfc822) %></h2>
                     </div>
                   </div>
                 <% end %>
               </div>
             </div>
-          <h2 class="card-trip-pricing"> <%= booking.start_date.to_formatted_s(:rfc822) %> / <%= booking.end_date.to_formatted_s(:rfc822) %></h2>
           </div>
         <% end %>
       </div>
