@@ -7,6 +7,7 @@ class FacilitiesController < ApplicationController
       @facilities = Facility.where(sql_query, query: "%#{params[:query]}%")
     else
       @facilities = Facility.geocoded
+      @facilities = Facility.order(created_at: :DESC)
     end
 
     @markers = @facilities.map do |facility|
