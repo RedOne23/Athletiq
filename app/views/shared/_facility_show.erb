@@ -1,0 +1,57 @@
+<div class="container">
+
+  <div class="row">
+      <div class="col-lg-8">
+      <% if @facility.photo.attached? %>
+          <%= cl_image_tag @facility.photo.key, width: 730 , height: 500, crop: :fill, class: "photo" %>
+        <%end%>
+      </div>
+      <div class="card-product col-lg-4">
+        <div class="card-product-infos fixed-card mr-4">
+          <h2 class="h2show"><%=@facility.name%></h2>
+          <p><strong>Category: </strong><%= @facility.category %></p>
+          <p><strong>Address: </strong><%= @facility.address %></p>
+          <p><strong>Capacity: </strong><%= @facility.capacity %></p>
+          <p><strong>Description: </strong><%= @facility.description %></p>
+          <p><strong>Price: </strong><%= @facility.price %><strong> €</strong></p>
+          <div class="container container-button">
+          <br><%= link_to "Book Now", new_facility_booking_path(@facility), class: "btn btn-flat" %>
+          <%= link_to "Edit Facility", edit_facility_path, class: "btn btn-flat" %>
+          <p><br></p> <%= link_to "Delete Facility", facility_path(@facility), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-flat"  %>
+          <%= link_to "Edit review", new_facility_review_path(@facility), class: "btn btn-flat" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+    <% @facility.reviews.each do |review|%>
+    <p>Comment : <%= review.content %> </p>
+    <% if review.rating == 1 %>
+    <p>⭐️</p>
+    <% elsif review.rating == 2 %>
+    <p>⭐️⭐️</p>
+    <% elsif review.rating == 3 %>
+    <p>⭐️⭐️⭐️</p>
+    <% elsif review.rating == 4 %>
+    <p>⭐️⭐️⭐️⭐️ </p>
+    <% else review.rating == 5 %>
+    <p>⭐️⭐️⭐️⭐️⭐️ </p>
+    <%end%>
+    <%end%>
+</div>
+
+
+  <div class="row">
+      <div class="col-lg-8">
+      <div class="container-map">
+      <div id="map"
+                      style="width: 800px; height: 400px;"
+                      data-markers="<%= @markers.to_json %>"
+                      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+                    </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
