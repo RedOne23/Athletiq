@@ -18,27 +18,32 @@
           <br><%= link_to "Book Now", new_facility_booking_path(@facility), class: "btn btn-flat" %>
           <%= link_to "Edit Facility", edit_facility_path, class: "btn btn-flat" %>
           <p><br></p> <%= link_to "Delete Facility", facility_path(@facility), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-flat"  %>
-          <%= link_to "Edit review", new_facility_review_path(@facility), class: "btn btn-flat" %>
+          <%= link_to "Submit review", new_facility_review_path(@facility), class: "btn btn-flat" %>
           </div>
         </div>
       </div>
     </div>
-    <div>
-    <% @facility.reviews.each do |review|%>
-    <p>Comment : <%= review.content %> </p>
-    <% if review.rating == 1 %>
-    <p>⭐️</p>
-    <% elsif review.rating == 2 %>
-    <p>⭐️⭐️</p>
-    <% elsif review.rating == 3 %>
-    <p>⭐️⭐️⭐️</p>
-    <% elsif review.rating == 4 %>
-    <p>⭐️⭐️⭐️⭐️ </p>
-    <% else review.rating == 5 %>
-    <p>⭐️⭐️⭐️⭐️⭐️ </p>
-    <%end%>
-    <%end%>
-</div>
+    <div class="row" id="review-content">
+      <% @facility.reviews.each do |review|%>
+      <div class="col-9" id="comment">
+        <p><i class="fas fa-comments"></i> <span id="spanreview"><%= review.content %></span> </p>
+      </div>
+      <br>
+      <div class="col-3" id="star">
+        <% if review.rating == 1 %>
+          <p>⭐️</p>
+          <% elsif review.rating == 2 %>
+          <p>⭐️⭐️</p>
+          <% elsif review.rating == 3 %>
+          <p>⭐️⭐️⭐️</p>
+          <% elsif review.rating == 4 %>
+          <p>⭐️⭐️⭐️⭐️ </p>
+          <% else review.rating == 5 %>
+          <p>⭐️⭐️⭐️⭐️⭐️ </p>
+        <%end%>
+      </div>
+      <%end%>
+    </div>
 
 
   <div class="row">
